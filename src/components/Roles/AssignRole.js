@@ -36,7 +36,7 @@ const AssignRole = (props) => {
         });
         console.log(data);
         rolesCtx.roleHandler();
-        history.replace('/dashboard');
+        history.replace('/');
       } catch (err) {
         console.log(err.response);
       }
