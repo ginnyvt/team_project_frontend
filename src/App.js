@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-import axios from 'axios';
-import RolesContext from './store/roles-context';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Home from './components/Home/Home';
-import AssignRole from './components/Roles/AssignRole';
-import Header from './components/Header/Header';
-import EmployeeProfile from './components/Employees/EmployeeProfile';
-import EmployerProfile from './components/Employers/EmployerProfile';
-import FoundJobs from './components/Employees/FoundJobs';
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import RolesContext from "./store/roles-context";
 
-import './App.css';
-import Footer from './components/Footer/Footer';
+import Home from "./components/Home/Home";
+import AssignRole from "./components/Roles/AssignRole";
+import Header from "./components/Header/Header";
+// import Routes from './components/Employees/Routes'
+import EmployeeProfile from './components/Employees/Profile'
+import EmployerProfile from "./components/Employers/EmployerProfile";
 
 const App = () => {
   const { isAuthenticated, user } = useAuth0();
@@ -46,6 +43,7 @@ const App = () => {
   }, [user]);
 
   return (
+
     <RolesContext.Provider
       value={{ isEmployer: isEmployer, roleHandler: roleHandler }}
     >
@@ -77,6 +75,32 @@ const App = () => {
       </Switch>
       <Footer/>
     </RolesContext.Provider>
+
+    // <RolesContext.Provider
+    //   value={{ isEmployer: isEmployer, roleHandler: roleHandler }}
+    // >
+    //   <Header />
+    //   <Switch>
+    //     <Route exact path='/'>
+    //       <Home />
+    //     </Route>
+    //     <Route path='/employers/assign'>
+    //       <AssignRole type='employer' />
+    //     </Route>
+
+    //     <Route path='/dashboard'>
+    //       {isEmployer && <EmployerProfile />}
+    //       {!isEmployer && <EmployeeProfile />}
+    //     </Route>
+    //     <Route path='*'>
+    //       <Redirect to='/' />
+    //     </Route>
+    //   </Switch>
+    // </RolesContext.Provider>
+    // <div>
+    //   <EmployeeProfile/>
+    //   {/* <Routes /> */}
+    // </div>
   );
 };
 
