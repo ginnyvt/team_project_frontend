@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 100px;
+  padding: 1rem;
+  border-bottom: 1px solid rgb(248, 248, 248);
+}
+
+.logo img {
+  max-height: 4rem;
+}
+
+.login_container {
+    width: 10rem;
+  }
+
+.login_logout {
+    width: 6rem;
+    background-color: rgb(159, 207, 234);
+    border-radius: 25px;
+    font-weight: bold;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.login_logout:hover {
+    box-shadow: 2px 2px 10px gray;
+    transition: 0.3s;
+}
+
+@media only screen and (max-width: 860px), screen and (max-height: 700px) {
+  header {
+    height: 80px;
+  }
+}

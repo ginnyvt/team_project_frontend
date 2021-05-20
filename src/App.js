@@ -13,6 +13,9 @@ import EmployeeProfile from './components/Employees/EmployeeProfile';
 import EmployerProfile from './components/Employers/EmployerProfile';
 import FoundJobs from './components/Employees/FoundJobs';
 
+import './App.css';
+import Footer from './components/Footer/Footer';
+
 const App = () => {
   const { isAuthenticated, user } = useAuth0();
   const [isEmployer, setIsEmployer] = useState(false);
@@ -72,6 +75,7 @@ const App = () => {
           <Redirect to='/' />
         </Route>
       </Switch>
+      <Footer/>
     </RolesContext.Provider>
   );
 };

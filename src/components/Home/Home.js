@@ -5,6 +5,8 @@ import EmployeeProfile from '../Employees/EmployeeProfile';
 import EmployeeDashboard from '../Employees/EmployeeDashboard';
 import EmployerDashboard from '../Employers/EmployerDashboard';
 
+import './Home.css';
+
 const Home = (props) => {
   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
 
@@ -25,18 +27,32 @@ const Home = (props) => {
 
   const renderSignupPage = () => {
     return (
-      <div>
-        <button onClick={() => signUpEmployeeHandler()}>Im an employee</button>
-        <button
-          onClick={() => {
-            loginWithRedirect({
-              screen_hint: 'signup',
-              redirectUri: `http://localhost:3000/employers/assign`,
-            });
-          }}
-        >
-          Im an employer
-        </button>
+      <div className="home">
+        <div className="container_home">
+          <div className='image'></div>
+          <div className='text_section'>
+            <h1>Create an account and find your match!</h1>
+            <div className='buttons'>
+              <div className="signup" onClick={() => signUpEmployeeHandler()}>Im an <span>employee</span></div>
+              <div className="signup"
+                onClick={() => {
+                  loginWithRedirect({
+                    screen_hint: 'signup',
+                    redirectUri: `http://localhost:3000/employers/assign`,
+                  });
+                }}
+              >
+                Im an <span>employer</span>
+              </div>
+            </div>
+            <p>
+              We make sure web developers and employers meet. Sign up, tick the
+              skills you have - and we will match you with corresponding jobs for
+              you to pick from. If they pick you back, you can talk business! Your
+              new career is awaiting.
+            </p>
+          </div>
+        </div>
       </div>
     );
   };
