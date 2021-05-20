@@ -9,13 +9,14 @@ const ProfileUpdateForm = () => {
   const [lastname, setLastname] = useState("");
   const [title, setTitle] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [employeeBio, setEmployeeBio] = useState("");
+  const [bio, setBio] = useState("");
 
-  useEffect(()=>{
-  }, [])
+  useEffect(() => {}, []);
 
   return (
+    
     <div className={classes.updateForm}>
+      <h2>This is Update page</h2>
       <Form>
         <Form.Group as={Row} controlId="email" className={classes.formGroup}>
           <Form.Label column sm="3">
@@ -87,6 +88,14 @@ const ProfileUpdateForm = () => {
           <Form.Text className="text-muted">
             Press and Hold cmd button to select multiple skills
           </Form.Text>
+        </Form.Group>
+        <Form.Group as={Row} controlId="bio" className={classes.formGroup}>
+          <Form.Label column sm="3">
+            Bio
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control as="textarea" rows={3} />
+          </Col>
         </Form.Group>
         <Form.Group className={classes.formGroup}>
           <Form.Label column sm="5">

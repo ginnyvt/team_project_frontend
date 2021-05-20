@@ -9,9 +9,8 @@ import RolesContext from "./store/roles-context";
 import Home from "./components/Home/Home";
 import AssignRole from "./components/Roles/AssignRole";
 import Header from "./components/Header/Header";
-import EmployerProfile from "./components/Employers/EmployerProfile";
-import EmployeeProfile from "./components/Employees/EmployeeProfile";
-import ProfileUpdateForm from "./components/Employees/ProfileUpdateForm";
+import Routes from './components/Employees/Routes'
+import EmployeeProfile from './components/Employees/EmployeeProfile'
 
 const App = () => {
   const { isAuthenticated, user } = useAuth0();
@@ -43,6 +42,7 @@ const App = () => {
   }, [user]);
 
   return (
+<<<<<<< HEAD
     <RolesContext.Provider
       value={{ isEmployer: isEmployer, roleHandler: roleHandler }}
     >
@@ -74,6 +74,33 @@ const App = () => {
       </Switch>
       <Footer/>
     </RolesContext.Provider>
+=======
+    // <RolesContext.Provider
+    //   value={{ isEmployer: isEmployer, roleHandler: roleHandler }}
+    // >
+    //   <Header />
+    //   <Switch>
+    //     <Route exact path='/'>
+    //       <Home />
+    //     </Route>
+    //     <Route path='/employers/assign'>
+    //       <AssignRole type='employer' />
+    //     </Route>
+
+    //     <Route path='/dashboard'>
+    //       {isEmployer && <EmployerProfile />}
+    //       {!isEmployer && <EmployeeProfile />}
+    //     </Route>
+    //     <Route path='*'>
+    //       <Redirect to='/' />
+    //     </Route>
+    //   </Switch>
+    // </RolesContext.Provider>
+    <div>
+      <EmployeeProfile/>
+      {/* <Routes /> */}
+    </div>
+>>>>>>> 34dbf36... added routes
   );
 };
 

@@ -14,4 +14,8 @@ export default createUseStyles({
   skills: {
     margin: "5px 5px",
   },
+
+  btn:{
+      
+  }
 });

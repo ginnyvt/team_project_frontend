@@ -1,6 +1,8 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
+
+
 const ProfileView = () => {
   const classes = useStyles();
 
@@ -14,24 +16,24 @@ const ProfileView = () => {
 
   //   const [fields, setFields] = useState({});
 
-  //   const getUser = () => {
-  //     return axios
-  //       .get(`${process.env.REACT_APP_SERVER_URL}/users/${user.sub}`)
-  //       .then((res) => res.data.json());
-  //   };
+  // const getUser = () => {
+  //   return axios
+  //     .get(`${process.env.REACT_APP_SERVER_URL}/users/${user.sub}`)
+  //     .then((res) => res.data.json());
+  // };
 
-  //   useEffect(() => {
-  //     let mounted = true;
-  //     getUser().then((fieldItems) => {
-  //       if (mounted) {
-  //         setFields(fieldItems);
-  //       }
-  //     });
-  //     return () => (mounted = false);
-  //   }, []);
+  // useEffect(() => {
+  //   let mounted = true;
+  //   getUser().then((fieldItems) => {
+  //     if (mounted) {
+  //       setFields(fieldItems);
+  //     }
+  //   });
+  //   return () => (mounted = false);
+  // }, []);
 
   useEffect(() => {
-    const getUser = () => {
+    const getUser = async (user) => {
       try {
         const { data } = await axios({
           url: `${process.env.REACT_APP_SERVER_URL}/users/${user.sub}`,
@@ -63,13 +65,18 @@ const ProfileView = () => {
 
   return (
     <div className={classes.profileView}>
+      <h2>This is Profile View Page</h2>
       <p>{firstname}</p>
       <p>{lastname}</p>
       <p>{title}</p>
       <p>{phoneNumber}</p>
       <p>{bio}</p>
-      <img src={image} alt="picture" />
-      <div className={classes.skills}>{skills.map((skill, id)=><p key={id}>{skill}</p>)}</div>
+      {/* <img src={image} alt="picture" /> */}
+      <div className={classes.skills}>
+        {skills.map((skill, id) => (
+          <p key={id}>{skill}</p>
+        ))}
+      </div>
     </div>
   );
 };
