@@ -14,37 +14,37 @@ const ProfileUpdateForm = () => {
   const [bio, setBio] = useState("");
   const [skills, setSkills] = useState([]);
 
-  // const updateProfile =async () => {
-  //   const token = await getAccessTokenSilently();
+  const updateProfile =async () => {
+    const token = await getAccessTokenSilently();
 
-  //   const updatedInfo = {
-  //     given_name: firstname,
-  //     family_name: lastname,
-  //     title,
-  //     contact_number: phoneNumber,
-  //     bio,
-  //     location,
-  //     skills,
-  //   };
+    const updatedInfo = {
+      given_name: firstname,
+      family_name: lastname,
+      title,
+      contact_number: phoneNumber,
+      bio,
+      location,
+      skills,
+    };
 
-  //   try {
-  //     const { data } = await axios({
-  //       url: `${process.env.REACT_APP_SERVER_URL}/users/updateprofile`,
-  //       method: "PATCH",
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //       data: updatedInfo,
-  //     });
-  //     console.log(data);
-  //   } catch (err) {
-  //     console.log(err.response);
-  //   }
-  // };
+    try {
+      const { data } = await axios({
+        url: `${process.env.REACT_APP_SERVER_URL}/users/updateprofile`,
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        data: updatedInfo,
+      });
+      console.log(data);
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    // await updateProfile();
+    await updateProfile();
     console.log(e.target.elements.controlId.value);
   };
   

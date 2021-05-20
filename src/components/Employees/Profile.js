@@ -1,18 +1,11 @@
-<<<<<<< HEAD
 import React from 'react';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-=======
-import React from "react";
-import useStyles from "./styles";
-import { withRouter, useHistory } from "react-router-dom";
-import Routes from "./Routes";
->>>>>>> 34dbf36... added routes
 
-const EmployeeProfile = () => {
+const Profile = () => {
   const classes = useStyles();
   const history = useHistory();
   return (
@@ -33,4 +26,4 @@ const EmployeeProfile = () => {
   );
 };
 
-export default withRouter(EmployeeProfile);
+export default withRouter(Profile);
