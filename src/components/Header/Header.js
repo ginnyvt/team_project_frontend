@@ -3,56 +3,61 @@ import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useAuth0 } from '@auth0/auth0-react';
 
-import Navbar from 'react-bootstrap/Navbar';
+// import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
+
+import './Header.css';
+import logo from '../Images/logo.svg';
 
 const Header = (props) => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
   console.log(props.isEmployer);
   return (
     <header>
-      <Navbar>
-        <Link to='/'>
-          <div>LOGO</div>
-        </Link>
 
+      <Link to='/'>
+        <div className="logo"><img src={logo} alt='logo' /></div>
+      </Link>
+
+      <div className=".login_container">
         <Nav className='justify-content-end'>
           {!isAuthenticated && (
-            <Button
+            <div className="login_logout"
               onClick={() => {
                 loginWithRedirect();
               }}
-            >
+              >
               Login
-            </Button>
+            </div>
           )}
 
           {/* Employer's navigation */}
           {isAuthenticated && props.isEmployer && (
-            <Button
+            <div className="login_logout"
               onClick={() => {
                 logout({ returnTo: window.location.origin });
               }}
-            >
+              >
               Logout
-            </Button>
+            </div>
           )}
 
           {/* Employee's navigation */}
           {isAuthenticated && !props.isEmployer && (
             <>
-              <Button
-                onClick={() => {
-                  logout({ returnTo: window.location.origin });
-                }}
-              >
-                Logout
-              </Button>
+                <div className="login_logout"
+                  onClick={() => {
+                    logout({ returnTo: window.location.origin });
+                  }}
+                  >
+                  Logout
+                </div>
             </>
           )}
         </Nav>
-      </Navbar>
+
+      </div>
 
       {/* <nav>
         <ul>
