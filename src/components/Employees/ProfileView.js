@@ -14,23 +14,23 @@ const ProfileView = () => {
   const [image, setImage] = useState("");
   const [skills, setSkills] = useState([]);
 
-  //   const [fields, setFields] = useState({});
+//     const [fields, setFields] = useState({});
 
-  // const getUser = () => {
-  //   return axios
-  //     .get(`${process.env.REACT_APP_SERVER_URL}/users/${user.sub}`)
-  //     .then((res) => res.data.json());
-  // };
+//   const getUser = () => {
+//     return axios
+//       .get(`${process.env.REACT_APP_SERVER_URL}/users/${user.sub}`)
+//       .then((res) => res.data.json());
+//   };
 
-  // useEffect(() => {
-  //   let mounted = true;
-  //   getUser().then((fieldItems) => {
-  //     if (mounted) {
-  //       setFields(fieldItems);
-  //     }
-  //   });
-  //   return () => (mounted = false);
-  // }, []);
+//   useEffect(() => {
+//     let mounted = true;
+//     getUser().then((fieldItems) => {
+//       if (mounted) {
+//         setFields(fieldItems);
+//       }
+//     });
+//     return () => (mounted = false);
+//   }, []);
 
   useEffect(() => {
     const getUser = async (user) => {
@@ -71,7 +71,7 @@ const ProfileView = () => {
       <p>{title}</p>
       <p>{phoneNumber}</p>
       <p>{bio}</p>
-      {/* <img src={image} alt="picture" /> */}
+      <img src={image} alt="picture" />
       <div className={classes.skills}>
         {skills.map((skill, id) => (
           <p key={id}>{skill}</p>
