@@ -8,7 +8,8 @@ import Nav from 'react-bootstrap/Nav';
 const EmployeeProfile = () => {
   return (
     <div>
-      <h2>Employee profile</h2>
+      <h2>This is employee dashboard</h2>
+      
     </div>
   );
 };
