@@ -15,6 +15,10 @@ const EmployerDashboard = () => {
             <Nav.Link>My Profile</Nav.Link>
           </LinkContainer>
 
+          <LinkContainer to='/employers/new-job'>
+            <Nav.Link>Create new job</Nav.Link>
+          </LinkContainer>
+
           <Nav.Link>Matched</Nav.Link>
         </Nav>
       </Navbar>

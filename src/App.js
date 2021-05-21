@@ -9,12 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home/Home';
 import AssignRole from './components/Roles/AssignRole';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import EmployeeProfile from './components/Employees/EmployeeProfile';
 import EmployerProfile from './components/Employers/EmployerProfile';
 import FoundJobs from './components/Employees/FoundJobs';
+import CreateNewJob from './components/Employers/CreateNewJob';
 
 import './App.css';
-import Footer from './components/Footer/Footer';
 
 const App = () => {
   const { isAuthenticated, user } = useAuth0();
@@ -63,19 +64,23 @@ const App = () => {
           <EmployeeProfile />
         </Route>
 
+        <Route exact path='/employees/found-jobs'>
+          <FoundJobs />
+        </Route>
+
         <Route exact path='/employers/profile'>
           <EmployerProfile />
         </Route>
 
-        <Route exact path='/employees/found-jobs'>
-          <FoundJobs />
+        <Route exact path='/employers/new-job'>
+          <CreateNewJob />
         </Route>
 
         <Route path='*'>
           <Redirect to='/' />
         </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </RolesContext.Provider>
   );
 };
